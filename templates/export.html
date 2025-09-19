@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Export Student Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background: #45a049;
+        }
+        .error {
+            color: red;
+            padding: 10px;
+            background: #ffeeee;
+            border: 1px solid #ffcccc;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+        .info {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196F3;
+        }
+        a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>Export Student Data to CSV</h2>
+    
+    <div class="info">
+        This will export all student records to a CSV file that can be opened in Excel or any spreadsheet application.
+    </div>
+    
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+    
+    <form method="post">
+        <label for="password">Enter Admin Password:</label>
+        <input type="password" name="password" id="password" required autofocus>
+        <input type="submit" value="Export to CSV">
+    </form>
+    
+    <br>
+    <a href="{{ url_for('index') }}">← Back to Student List</a>
+</body>
+</html>
